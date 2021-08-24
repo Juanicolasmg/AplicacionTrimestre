@@ -1,17 +1,18 @@
 ﻿@model AplicaciónTrimestre.Models.usuario
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles Usuario";
 }
 
-<h2>Details</h2>
+<h2>Detalles</h2>
 
 <div>
-    <h4>usuario</h4>
+    <h4>Usuario</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.nombre)
+            @*@Html.DisplayNameFor(model => model.nombre)*@
+            Nombre:
         </dt>
 
         <dd>
@@ -19,7 +20,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.apellido)
+            @*@Html.DisplayNameFor(model => model.apellido)*@
+            Apellido:
         </dt>
 
         <dd>
@@ -27,7 +29,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.fecha_nacimiento)
+            @*@Html.DisplayNameFor(model => model.fecha_nacimiento)*@
+            Fecha De Nacimiento:
         </dt>
 
         <dd>
@@ -35,24 +38,25 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.email)
+            @*@Html.DisplayNameFor(model => model.email)*@
+            Correo:
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.email)
         </dd>
 
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.password)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.password)
-        </dd>
+        </dd>*@
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Volver a la lista", "Index")
 </p>
