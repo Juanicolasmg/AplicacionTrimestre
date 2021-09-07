@@ -9,6 +9,7 @@ namespace AplicaciónTrimestre.Controllers
 {
     public class RolesController : Controller
     {
+        [Authorize]
         // GET: Roles
         public ActionResult Index()
         {
