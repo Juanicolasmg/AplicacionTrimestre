@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AplicaciónTrimestre.Models;
+using Rotativa;
 
 namespace AplicaciónTrimestre.Controllers
 {
@@ -157,6 +158,11 @@ namespace AplicaciónTrimestre.Controllers
                 ModelState.AddModelError("", "error" + ex);
                 return View();
             }
+        }
+
+        public ActionResult pdfReporte()
+        {
+            return new ActionAsPdf("Reporte") { FileName = "reporte.pdf" };
         }
     }
 }
