@@ -127,7 +127,6 @@ namespace AplicaciónTrimestre.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult uploadCSV(HttpPostedFileBase fileForm)
         {
             try
