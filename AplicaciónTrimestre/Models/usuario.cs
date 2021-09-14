@@ -40,7 +40,6 @@ namespace AplicaciónTrimestre.Models
         public string email { get; set; }
 
         [Required(ErrorMessage = "El campo es obligatorio")]
-        [Range(100, 10000)]
         public string password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
