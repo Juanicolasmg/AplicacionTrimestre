@@ -24,29 +24,37 @@
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
                     <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Opciones
-                            <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Cliente CRUD", "Index", "Cliente")</li>
-                            <li>@Html.ActionLink("Usuario CRUD", "Index", "Usuario")</li>
-                            <li>@Html.ActionLink("Usuario Rol CRUD", "Index", "UsuarioRol")</li>
-                            <li>@Html.ActionLink("Roles CRUD", "Index", "Roles")</li>
-                            <li>@Html.ActionLink("Proveedor CRUD", "Index", "Proveedor")</li>
-                            <li>@Html.ActionLink("Compra CRUD", "Index", "Compra")</li>
-                            <li>@Html.ActionLink("Producto CRUD", "Index", "Producto")</li>
-                            <li>@Html.ActionLink("Producto Compra CRUD", "Index", "ProductoCompra")</li>
-                            <li>@Html.ActionLink("Producto Imagen CRUD", "Index", "ProductoImagen")</li>
-                            <li>@Html.ActionLink("Reporte Producto-Proveedor", "Reporte", "Producto")</li>
-                            <li>@Html.ActionLink("Factura Compra", "FacturaCompra", "Compra")</li>
-                        </ul>
-                    </li>
-                    @if (User.Identity.IsAuthenticated)
-                    {   
-                         <li>@Html.ActionLink("Cerrar Sesión", "CloseSession", "Usuario")</li>
+
+                    @if (User.Identity.IsAuthenticated == false)
+                    {
+                        <li>@Html.ActionLink("Iniciar Sesión", "Login", "Usuario")</li>
                     }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Opciones
+                                <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Cliente CRUD", "Index", "Cliente")</li>
+                                <li>@Html.ActionLink("Usuario CRUD", "Index", "Usuario")</li>
+                                <li>@Html.ActionLink("Usuario Rol CRUD", "Index", "UsuarioRol")</li>
+                                <li>@Html.ActionLink("Roles CRUD", "Index", "Roles")</li>
+                                <li>@Html.ActionLink("Proveedor CRUD", "Index", "Proveedor")</li>
+                                <li>@Html.ActionLink("Compra CRUD", "Index", "Compra")</li>
+                                <li>@Html.ActionLink("Producto CRUD", "Index", "Producto")</li>
+                                <li>@Html.ActionLink("Producto Compra CRUD", "Index", "ProductoCompra")</li>
+                                <li>@Html.ActionLink("Producto Imagen CRUD", "Index", "ProductoImagen")</li>
+                                <li>@Html.ActionLink("Reporte Producto-Proveedor", "Reporte", "Producto")</li>
+                                <li>@Html.ActionLink("Factura Compra", "FacturaCompra", "Compra")</li>
+                            </ul>
+                        </li>
+                        <li>@Html.ActionLink("Cerrar Sesión", "CloseSession", "Usuario")</li>
+                    }
+
+
                 </ul>
             </div>
         </div>
