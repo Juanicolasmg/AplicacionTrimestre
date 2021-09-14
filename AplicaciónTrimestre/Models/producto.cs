@@ -11,7 +11,8 @@ namespace AplicaciónTrimestre.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,10 +23,20 @@ namespace AplicaciónTrimestre.Models
         }
     
         public int id { get; set; }
+
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public string nombre { get; set; }
+
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public int percio_unitario { get; set; }
+
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public string descripcion { get; set; }
+
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public int cantidad { get; set; }
+
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public int id_proveedor { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

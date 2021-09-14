@@ -11,11 +11,16 @@ namespace AplicaciónTrimestre.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class producto_imagen
     {
         public int id { get; set; }
+
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public string imagen { get; set; }
+
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public int id_producto { get; set; }
     
         public virtual producto producto { get; set; }

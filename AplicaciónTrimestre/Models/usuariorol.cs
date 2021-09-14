@@ -11,11 +11,16 @@ namespace AplicaciónTrimestre.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class usuariorol
     {
         public int id { get; set; }
+
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public int idUsuario { get; set; }
+
+        [Required(ErrorMessage = "El campo es obligatorio")]
         public int idRol { get; set; }
     
         public virtual roles roles { get; set; }
