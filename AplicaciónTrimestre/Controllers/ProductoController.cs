@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using AplicaciónTrimestre.Models;
 using Rotativa;
+using System.IO;
 
 namespace AplicaciónTrimestre.Controllers
 {
@@ -163,6 +164,73 @@ namespace AplicaciónTrimestre.Controllers
         public ActionResult pdfReporte()
         {
             return new ActionAsPdf("Reporte") { FileName = "reporte.pdf" };
+        }
+
+        public ActionResult uploadCSV()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult uploadCSV(HttpPostedFileBase fileForm)
+        {
+            try
+            {
+                //string para guardar la ruta del archivo
+                string filePath = string.Empty;
+
+                //Condición para saber si el archivo llego
+                if (fileForm != null)
+                {
+                    //Ruta de la carpeta que guardara el archivo
+                    string path = Server.MapPath("~/uploads/");
+
+                    //Condición para verificar si la rura existe
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+
+                    //Obtener el nombre del archivo
+                    filePath = path + Path.GetFileName(fileForm.FileName);
+
+                    //Obtener la extensión del archivo
+                    string extension = Path.GetExtension(fileForm.FileName);
+
+                    //Guardar el archivo
+                    fileForm.SaveAs(filePath);
+
+                    string csvData = System.IO.File.ReadAllText(filePath);
+
+                    foreach (string row in csvData.Split('\n'))
+                    {
+                        if (!string.IsNullOrEmpty(row))
+                        {
+                            var newProducto = new producto
+                            {
+                                nombre = row.Split(';')[0],
+                                percio_unitario = Convert.ToInt32(row.Split(';')[1]),
+                                descripcion = row.Split(';')[2],
+                                cantidad = Convert.ToInt32(row.Split(';')[3]),
+                                id_proveedor = Convert.ToInt32(row.Split(';')[4])
+                            };
+
+                            using (var db = new inventario2021Entities())
+                            {
+                                db.producto.Add(newProducto);
+                                db.SaveChanges();
+                            }
+                        }      
+                    }
+                }
+
+                return View();
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
         }
     }
 }

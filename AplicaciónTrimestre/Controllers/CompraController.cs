@@ -177,7 +177,7 @@ namespace AplicaciónTrimestre.Controllers
 
         public ActionResult pdfReporte()
         {
-            return new ActionAsPdf("ReporteCompra") { FileName = "Reporte.pdf" };
+            return new ActionAsPdf("FacturaCompra") { FileName = "Reporte.pdf" };
         }
     }
 }
