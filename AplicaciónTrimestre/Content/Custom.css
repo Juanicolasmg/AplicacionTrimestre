@@ -1,0 +1,62 @@
+﻿body {
+    background-color: #01ad8d !important;
+}
+
+.navbar-nav > li > a {
+    color: papayawhip !important;
+}
+
+.navbar > .container .navbar-brand {
+    color: white !important;
+    font-size: 20px;
+}
+
+.navbar-inverse {
+    background-color: black !important;
+    border-color: black !important;
+}
+
+.dropdown-menu > li > a {
+    color: papayawhip !important;
+}
+
+.navbar-nav > li > .dropdown-menu {
+    background-color: black;
+}
+
+.dropdown-menu > li > a:hover {
+    color: papayawhip !important;
+    background-color: #01ad8d !important;
+}
+
+.jumbotron {
+    background-color: azure !important;
+}
+
+.container .jumbotron {
+    border-radius: 100px !important;
+}
+
+.jumbotron h1 {
+    font-size: 45px
+}
+
+.btn-primary {
+    color: papayawhip !important;
+    background-color: black !important;
+    border-color: black !important;
+}
+
+.btn-default {
+    color: papayawhip;
+    background-color: black;
+    border-color: black;
+}
+
+.col-md-4 {
+    color: white;
+}
+
+.Footer {
+    color: white;
+}
