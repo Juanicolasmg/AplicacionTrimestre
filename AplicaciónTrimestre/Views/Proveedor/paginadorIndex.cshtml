@@ -1,0 +1,27 @@
+﻿@model AplicaciónTrimestre.Models.ProveedorIndex
+
+@{
+    ViewBag.Title = "Paginador Index";
+}
+
+<h2>Paginador Index</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Telefono</th>
+        <th>Nombre Contacto</th>
+    </tr>
+    @foreach (var Proveedor in Model.Proveedores)
+    {
+        <tr>
+            <td>@Proveedor.nombre</td>
+            <td>@Proveedor.direccion</td>
+            <td>@Proveedor.telefono</td>
+            <td>@Proveedor.nombre_contacto</td>
+        </tr>
+    }
+</table>
+
+@{ Html.RenderPartial("Paginador", Model); }

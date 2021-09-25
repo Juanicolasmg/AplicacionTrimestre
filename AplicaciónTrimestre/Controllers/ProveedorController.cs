@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using AplicaciónTrimestre.Models;
 using System.IO;
+using System.Web.Routing;
 
 namespace AplicaciónTrimestre.Controllers
 {
@@ -179,6 +180,34 @@ namespace AplicaciónTrimestre.Controllers
                 }
 
                 return View();
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
+
+        public ActionResult paginadorIndex(int pagina = 1)
+        {
+            try
+            {
+                var cantidadRegistros = 10;
+
+                using (var db = new inventario2021Entities())
+                {
+                    var Proveedores = db.proveedor.OrderBy(x => x.id).Skip((pagina - 1) * cantidadRegistros).Take(cantidadRegistros).ToList();
+
+                    var totalRegistros = db.proveedor.Count();
+                    var modelo = new ProveedorIndex();
+                    modelo.Proveedores = Proveedores;
+                    modelo.ActualPage = pagina;
+                    modelo.Total = totalRegistros;
+                    modelo.RecordsPage = cantidadRegistros;
+                    modelo.valueQueryString = new RouteValueDictionary();
+
+                    return View(modelo);
+                }
             }
             catch (Exception ex)
             {
