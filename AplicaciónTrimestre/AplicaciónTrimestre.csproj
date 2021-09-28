@@ -308,9 +308,11 @@
     <Content Include="Views\Usuario\paginadorIndex.cshtml" />
     <Content Include="Views\Shared\Paginador.cshtml" />
     <Content Include="Views\Proveedor\paginadorIndex.cshtml" />
+    <Content Include="Views\ProductoImagen\CargarImagen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="uploads\Imagenes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
