@@ -48,7 +48,7 @@
 }
 
 .btn-default {
-    color: papayawhip;
+    color: papayawhip !important;
     background-color: black;
     border-color: black;
 }
@@ -59,4 +59,24 @@
 
 .Footer {
     color: white;
+}
+
+td {
+    color: white;
+}
+
+p > a {
+    color: black !important;
+}
+
+td > a {
+    color: white !important;
+}
+
+a {
+    color: black !important;
+}
+
+h2 {
+    color: papayawhip;
 }
